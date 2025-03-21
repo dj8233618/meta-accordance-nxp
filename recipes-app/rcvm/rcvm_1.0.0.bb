@@ -16,7 +16,7 @@ S = "${WORKDIR}/rcvm"
 do_untar_files () {
 	cat ${WORKDIR}/ircvm.tar.gz.* | tar -C ${WORKDIR} -zxvf -
 }
-addtask untar_files before do_patch after do_fetch
+addtask untar_files before do_patch after do_unpack
 
 do_install:append () {
 	install -d -m 0755 ${D}/home/weston/ircvm
