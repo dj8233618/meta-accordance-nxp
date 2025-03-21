@@ -1,7 +1,7 @@
 DESCRIPTION = "Accordance RCVM"
 LICENSE = "CLOSED"
 
-FILESEXTRAPATHS:prepend := "${THISDIR}:files"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 SRC_URI = " \
 file://ircvm.tar.gz.00;md5sum=919caa0c1a5db27b0a0255735945f2ee \
