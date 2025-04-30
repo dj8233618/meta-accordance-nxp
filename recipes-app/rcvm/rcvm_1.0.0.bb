@@ -19,7 +19,7 @@ SRC_URI = " \
     file://ircvm.tar.gz.12;md5sum=9e3cddaa9cabe3c5ba18c6a0054897e7 \
 "
 
-S = "${WORKDIR}/rcvm"
+S = "${WORKDIR}/ircvm"
 
 do_untar_files () {
 	cat ${WORKDIR}/ircvm.tar.gz.* | tar -C ${WORKDIR} -zxvf -
