@@ -31,6 +31,10 @@ do_install:append () {
         install -m 0755 ${S}/svm_config.ini ${D}/home/weston/ircvm
         install -m 0755 ${S}/svm_run ${D}/home/weston/ircvm
         install -m 0755 ${S}/vnc_snapshot ${D}/home/weston/ircvm
+        install -m 0755 ${S}/rcvm_run.sh ${D}/home/weston/ircvm
+        install -m 0755 ${S}/rdp_run.sh ${D}/home/weston/ircvm
+        install -m 0755 ${S}/svm_run.sh ${D}/home/weston/ircvm
+        install -m 0755 ${S}/setup.sh ${D}/home/weston/ircvm
 }
 
 INSANE_SKIP:${PN} += "already-stripped file-rdeps"
