@@ -3,10 +3,11 @@ Description=Ping Dev Service
 After=network.target
 
 [Service]
-Type=simple
+WorkingDirectory=/home/weston/ircvm
 ExecStart=/home/weston/ircvm/ping_dev
 Restart=always
 RestartSec=3
+Type=simple
 
 [Install]
 WantedBy=multi-user.target
