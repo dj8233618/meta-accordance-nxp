@@ -1,1 +1,13 @@
+[Unit]
+Description=Ping Dev Service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/weston/ircvm/ping_dev
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
 
