@@ -18,3 +18,7 @@ do_install() {
     install -d ${D}${systemd_system_unitdir}
     install -m 0644 ${WORKDIR}/ping_dev.service ${D}${systemd_system_unitdir}
 }
+
+INSANE_SKIP:${PN} += "already-stripped"
+RDEPENDS:${PN} += "zlib"
+FILES:${PN} += "/home/weston/ircvm ${systemd_system_unitdir}"
