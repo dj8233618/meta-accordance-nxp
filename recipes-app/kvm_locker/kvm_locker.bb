@@ -1,22 +1,22 @@
 
-SUMMARY = "Install and run ping_dev"
-DESCRIPTION = "Install ping_dev binary and set it to auto-start via systemd"
+SUMMARY = "Install and run kvm_locker"
+DESCRIPTION = "Install kvm_locker binary and set it to auto-start via systemd"
 LICENSE = "CLOSED"
-SRC_URI = "file://ping_dev \
-           file://ping_dev.service"
+SRC_URI = "file://kvm_locker \
+           file://kvm_locker.service"
 
 S = "${WORKDIR}"
 
 inherit systemd
 
-SYSTEMD_SERVICE:${PN} = "ping_dev.service"
+SYSTEMD_SERVICE:${PN} = "kvm_locker.service"
 SYSTEMD_AUTO_ENABLE:${PN} = "enable"
 
 do_install() {
-    install -d ${D}/home/weston/ircvm
-    install -m 0755 ${WORKDIR}/ping_dev ${D}/home/weston/ircvm
+    install -d ${D}/home/weston/kvm_locker
+    install -m 0755 ${WORKDIR}/kvm_locker ${D}/home/weston/kvm_locker
     install -d ${D}${systemd_system_unitdir}
-    install -m 0644 ${WORKDIR}/ping_dev.service ${D}${systemd_system_unitdir}
+    install -m 0644 ${WORKDIR}/kvm_locker.service ${D}${systemd_system_unitdir}
 }
 
 INSANE_SKIP:${PN} += "already-stripped"
