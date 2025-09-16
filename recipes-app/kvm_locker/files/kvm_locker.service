@@ -1,0 +1,23 @@
+[Unit]
+Description=KVM Locker Qt App
+After=graphical.target
+
+[Service]
+Type=simple
+# 設定工作目錄，確保 main_test 可以找到同資料夾的 ini
+WorkingDirectory=/home/weston/KVM_Locker
+
+# 匯入跟你手動執行一樣的環境（login shell）
+ExecStart=/bin/bash -lc './KVM_Locker'
+
+# X11 環境變數
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/weston/.Xauthority
+# 確保 Qt / X11 找得到 runtime
+Environment=XDG_RUNTIME_DIR=/run/user/%U
+
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
+
