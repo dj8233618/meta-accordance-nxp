@@ -25,18 +25,18 @@ SYSTEMD_SERVICE:${PN} = "kvm_locker.service"
 SYSTEMD_AUTO_ENABLE:${PN} = "enable"
 
 do_install() {
-    # Create target directory
-    install -d ${D}/home/weston/kvm_locker
+    # Create target directory (note: now /home/weston/KVM_Locker)
+    install -d ${D}/home/weston/KVM_Locker
 
-    # Install main binary (case-sensitive, must match actual filename)
-    install -m 0755 ${WORKDIR}/KVM_Locker ${D}/home/weston/kvm_locker/
+    # Install main binary
+    install -m 0755 ${WORKDIR}/KVM_Locker ${D}/home/weston/KVM_Locker/
 
     # Install configuration file
-    install -m 0644 ${WORKDIR}/config.ini ${D}/home/weston/kvm_locker/
+    install -m 0644 ${WORKDIR}/config.ini ${D}/home/weston/KVM_Locker/
 
     # Copy images directory if present
     if [ -d ${WORKDIR}/images ]; then
-        cp -a ${WORKDIR}/images ${D}/home/weston/kvm_locker/
+        cp -a ${WORKDIR}/images ${D}/home/weston/KVM_Locker/
     fi
 
     # Install systemd unit file
@@ -52,6 +52,6 @@ RDEPENDS:${PN} += "zlib"
 
 # Files to include in the package
 FILES:${PN} += " \
-    /home/weston/kvm_locker \
+    /home/weston/KVM_Locker \
     ${systemd_system_unitdir} \
 "
