@@ -14,7 +14,10 @@ SYSTEMD_AUTO_ENABLE:${PN} = "enable"
 
 do_install() {
     install -d ${D}/home/weston/kvm_locker
+    install -d ${D}/home/weston/kvm_locker/images
     install -m 0755 ${WORKDIR}/kvm_locker ${D}/home/weston/kvm_locker
+    install -m 0755 ${WORKDIR}/config.ini ${D}/home/weston/kvm_locker
+    install -m 0755 ${WORKDIR}/kvm_locker/images/Pictogrammers-Material-Light-Settings.512.png ${D}/home/weston/kvm_locker/images
     install -d ${D}${systemd_system_unitdir}
     install -m 0644 ${WORKDIR}/kvm_locker.service ${D}${systemd_system_unitdir}
 }
