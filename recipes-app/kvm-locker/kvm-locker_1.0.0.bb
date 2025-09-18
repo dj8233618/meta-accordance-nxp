@@ -8,7 +8,9 @@ SRC_URI = "file://KVM_Locker.tar.gz.00;md5sum=b83d7092453c9b87e374301e8255ce22 \
            file://KVM_Locker.tar.gz.01;md5sum=7baec15b95fee01fa26a6216835a1de4 \
            file://KVM_Locker.tar.gz.02;md5sum=d8d092698b5a9e6999daee03e608be58 \
            file://KVM_Locker.tar.gz.03;md5sum=be210085cfba2426b0e247dd0c197950 \
-           file://kvm_locker.service"
+           file://kvm_locker.service \
+           file://images/Pictogrammers-Material-Light-Settings.512.png \
+           file://config.ini"
 
 # Extraction will place files under ${WORKDIR}, so set S accordingly
 S = "${WORKDIR}"
@@ -34,10 +36,9 @@ do_install() {
     # Install configuration file
     install -m 0644 ${WORKDIR}/config.ini ${D}/home/weston/KVM_Locker/
 
-    # Copy images directory if present
-    if [ -d ${WORKDIR}/images ]; then
-        cp -a ${WORKDIR}/images ${D}/home/weston/KVM_Locker/
-    fi
+    # Copy image file
+    install -d ${D}/home/weston/KVM_Locker/images
+    install -m 0644 ${WORKDIR}/images/Pictogrammers-Material-Light-Settings.512.png ${D}/home/weston/KVM_Locker/images/
 
     # Install systemd unit file
     install -d ${D}${systemd_system_unitdir}
